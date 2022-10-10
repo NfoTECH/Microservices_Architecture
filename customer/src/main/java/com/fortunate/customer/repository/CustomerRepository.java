@@ -1,4 +1,4 @@
-package com.fortunate.customer.persistence.repository;
+package com.fortunate.customer.repository;
 
 import com.fortunate.customer.entity.Customer;
 import org.springframework.data.jpa.repository.JpaRepository;
