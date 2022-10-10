@@ -4,7 +4,7 @@ import com.fortunate.clients.fraud.FraudClient;
 import com.fortunate.customer.entity.Customer;
 import com.fortunate.customer.payload.request.CustomerRegistrationRequest;
 import com.fortunate.clients.fraud.FraudCheckResponse;
-import com.fortunate.customer.persistence.repository.CustomerRepository;
+import com.fortunate.customer.repository.CustomerRepository;
 import com.fortunate.customer.service.CustomerService;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
