@@ -1,6 +1,6 @@
 package com.fortunate.controller;
 
-import com.fortunate.payload.request.NotificationRequest;
+import com.fortunate.clients.notification.NotificationRequest;
 import com.fortunate.service.NotificationService;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
