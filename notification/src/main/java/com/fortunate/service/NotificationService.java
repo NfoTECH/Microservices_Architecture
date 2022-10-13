@@ -1,8 +1,7 @@
-package com.fortunate.service.impl;
+package com.fortunate.service;
 import com.fortunate.entity.Notification;
 import com.fortunate.clients.notification.NotificationRequest;
 import com.fortunate.repository.NotificationRepository;
-import com.fortunate.service.NotificationService;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -10,11 +9,10 @@ import java.time.LocalDateTime;
 
 @Service
 @AllArgsConstructor
-public class NotificationServiceImpl implements NotificationService {
+public class NotificationService {
 
     private final NotificationRepository notificationRepository;
 
-    @Override
     public void sendNotification(NotificationRequest notificationRequest) {
         notificationRepository.save(
                 Notification.builder()
