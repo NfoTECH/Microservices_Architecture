@@ -1,6 +1,8 @@
 package com.fortunate.customer.service.impl;
 
 import com.fortunate.clients.fraud.FraudClient;
+import com.fortunate.clients.notification.NotificationRequest;
+import com.fortunate.clients.notification.NotificationClient;
 import com.fortunate.customer.entity.Customer;
 import com.fortunate.customer.payload.request.CustomerRegistrationRequest;
 import com.fortunate.clients.fraud.FraudCheckResponse;
@@ -16,6 +18,7 @@ public class CustomerServiceImpl implements CustomerService {
 
     private final CustomerRepository customerRepository;
     private final FraudClient fraudClient;
+    private final NotificationClient notificationClient;
 
     public void registerCustomer(CustomerRegistrationRequest customerRegistrationRequest) {
         Customer customer = Customer.builder()
@@ -33,5 +36,13 @@ public class CustomerServiceImpl implements CustomerService {
             throw new RuntimeException("Customer is a fraudster");
         }
 
+        notificationClient.sendNotification(
+                new NotificationRequest(
+                        customer.getId(),
+                        customer.getEmail(),
+                        String.format("Hi %s, welcome to Fortunate microservices...", customer.getFirstName())
+
+                )
+        );
     }
 }
