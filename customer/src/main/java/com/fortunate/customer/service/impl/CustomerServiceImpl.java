@@ -36,13 +36,15 @@ public class CustomerServiceImpl implements CustomerService {
             throw new RuntimeException("Customer is a fraudster");
         }
 
-        notificationClient.sendNotification(
+        //notificationClient.sendNotification(
+        NotificationRequest notificationRequest =
                 new NotificationRequest(
                         customer.getId(),
                         customer.getEmail(),
                         String.format("Hi %s, welcome to Fortunate microservices...", customer.getFirstName())
 
-                )
+
         );
+        notificationClient.sendNotification(notificationRequest);
     }
 }
